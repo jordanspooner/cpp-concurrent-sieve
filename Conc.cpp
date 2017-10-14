@@ -22,7 +22,7 @@ void thread_1_work(Index* index){
 void thread_2_work(Index* index){
   // loops adding and removing 2 from the index with pauses to search
   for(int cnt = 1; cnt<=100; cnt++){
-    cout << "t2:insert 2  : " << index->insert(2) << endl;
+    cout << "t2:insert 2 : " << index->insert(2) << endl;
     cout << "t2:search 2 : " << index->search(2) << endl;
     cout << "t2:remove 2 : " << index->remove(2) << endl;
     cout << "t2:search 2 : " << index->search(2) << endl;

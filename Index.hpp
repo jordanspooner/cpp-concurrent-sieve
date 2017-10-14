@@ -21,10 +21,14 @@ class Node {
     Node* prev;
     Node* next;
 
+    // mutex for node
+    std::mutex* mutex;
+
   public:
 
     // class constructor, takes key value and prev/next list elements
-    Node(int item);
+    explicit Node(int item);
+    ~Node();
 
     // node query methods
     Node* getPrev();
@@ -34,6 +38,9 @@ class Node {
     // node update methods
     void setPrev(Node* prev);
     void setNext(Node* next);
+
+    // mutex methods
+    std::mutex* getMutex();
   
 };
 
@@ -44,11 +51,16 @@ class Index {
     // pointers to the head and tail of the doubly linked list
     Node* head;
     Node* tail;
+
+    // mutexes for head and tail of list
+    mutex* headMutex;
+    mutex* tailMutex;
     
   public:
 
     // class constructor, loads an image from a provided file (or URL?)
     Index(int seeds[], int length);
+    ~Index();
 
     // look for element in the index
     bool search(int key);
