@@ -50,13 +50,13 @@ int main(int argc, char ** argv)
 
   // Main idea: start up 3 threads and have them all hit the index simultaniously.
 
-  Index* index = new Index(NULL, 0);
+  auto* index = new Index(nullptr, 0);
 
   cout << "starting 3 threads that concurrently modify the index..." << endl;
 
   // run this test 10 times and profile the execution times (for interest)
   int times[10];
-  for(int runs = 0; runs < 10; runs++){
+  for (int &time : times) {
 
     high_resolution_clock::time_point t1 = high_resolution_clock::now();
 
@@ -70,15 +70,15 @@ int main(int argc, char ** argv)
 
     high_resolution_clock::time_point t2 = high_resolution_clock::now();
 
-    int duration = duration_cast<microseconds>( t2 - t1 ).count();
+    int duration = (int)duration_cast<microseconds>( t2 - t1 ).count();
     cout << "execution of threads took: " << duration << " microseconds" << endl;
 
-    times[runs] = duration;
+    time = duration;
   }
 
   int sum = 0;
-  for(int i = 0; i < 10; i++){
-    sum = sum + times[i];
+  for (int time : times) {
+    sum = sum + time;
   }
   int avg = sum/10;
   cout << "average execution time = " << avg << " microseconds" << endl;
