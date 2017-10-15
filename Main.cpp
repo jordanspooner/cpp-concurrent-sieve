@@ -1,6 +1,3 @@
-#include <iostream>
-#include <thread>
-
 #include "Index.hpp"
 
 using namespace std;

@@ -1,6 +1,6 @@
 #include <cassert>
 #include <iostream>
-#include <math.h>
+#include <cmath>
 #include <thread>
 
 #include "Index.hpp"

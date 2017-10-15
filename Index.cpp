@@ -1,4 +1,3 @@
-
 #include "Index.hpp"
 
 using namespace std;

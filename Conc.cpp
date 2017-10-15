@@ -1,6 +1,5 @@
 #include <iostream>
 #include <thread>
-#include <chrono>
 
 #include "Index.hpp"
 
